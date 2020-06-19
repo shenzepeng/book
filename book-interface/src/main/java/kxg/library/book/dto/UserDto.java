@@ -8,6 +8,5 @@ import java.io.Serializable;
  * 要写注释呀
  */
 @Data
-public class BookListHistoryDto implements Serializable {
-
+public class UserDto implements Serializable {
 }

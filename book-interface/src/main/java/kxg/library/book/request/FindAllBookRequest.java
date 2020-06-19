@@ -1,16 +1,16 @@
-package kxg.library.book.dto;
+package kxg.library.book.request;
 
+import kxg.library.book.dto.BookDto;
 import lombok.Data;
 
-import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * 要写注释呀
  */
 @Data
-public class BookDto implements Serializable {
-
+public class FindAllBookRequest {
     private Long id;
 
     /**
@@ -69,4 +69,6 @@ public class BookDto implements Serializable {
      */
     private String preice;
 
+    private Integer pageNumber=10;
+    private Integer pageSize=1;
 }
