@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kxg.library.book.provider.mapper.BookMapper">
+  <resultMap id="BaseResultMap" type="kxg.library.book.provider.pojo.Book">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="book_name" jdbcType="VARCHAR" property="bookName" />
+    <result column="book_size" jdbcType="INTEGER" property="bookSize" />
+    <result column="book_grades" jdbcType="VARCHAR" property="bookGrades" />
+    <result column="habbit_type" jdbcType="VARCHAR" property="habbitType" />
+    <result column="support_major" jdbcType="VARCHAR" property="supportMajor" />
+    <result column="author" jdbcType="VARCHAR" property="author" />
+    <result column="language" jdbcType="VARCHAR" property="language" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="img_url" jdbcType="VARCHAR" property="imgUrl" />
+    <result column="preice" jdbcType="VARCHAR" property="preice" />
+  </resultMap>
+  <select id="findAllBook" parameterType="kxg.library.book.provider.pojo.Book" resultMap="BaseResultMap">
+    SELECT * FROM t_book
+    where 1=1
+    <if test="bookName !=null and bookName!=''">
+      AND book_name like CONCAT('%',#{bookName},'%')
+    </if>
+    <if test="bookSize !=null ">
+      AND book_size =#{bookSize}
+    </if>
+    <if test="bookGrades !=null and bookGrades!='' ">
+      AND book_grades =#{bookGrades}
+    </if>
+    <if test="habbitType !=null  and habbitType !=''">
+      AND habbit_type=#{habbitType}
+    </if>
+    <if test="supportMajor !=null and supportMajor!=''">
+      AND support_major like CONCAT('%',#{supportMajor},'%')
+    </if>
+    <if test="author !=null  and author !=null ">
+      AND author like CONCAT('%',#{author},'%')
+    </if>
+    <if test="language !=null and language!=null ">
+      AND language =#{language}
+    </if>
+    <if test="preice !=null ">
+      AND preice=#{preice}
+    </if>
+    order by id desc
+  </select>
+</mapper>

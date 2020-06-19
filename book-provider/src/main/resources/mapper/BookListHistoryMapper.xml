@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kxg.library.book.provider.mapper.BookListHistoryMapper">
+  <resultMap id="BaseResultMap" type="kxg.library.book.provider.pojo.BookListHistory">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="book_id" jdbcType="BIGINT" property="bookId" />
+    <result column="book_name" jdbcType="VARCHAR" property="bookName" />
+    <result column="habbit_type" jdbcType="VARCHAR" property="habbitType" />
+    <result column="support_major" jdbcType="VARCHAR" property="supportMajor" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="work_id" jdbcType="VARCHAR" property="workId" />
+    <result column="chinese_name" jdbcType="VARCHAR" property="chineseName" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="department" jdbcType="VARCHAR" property="department" />
+  </resultMap>
+  <select id="findBookList" resultMap="BaseResultMap" parameterType="kxg.library.book.provider.pojo.BookListHistory">
+    SELECT * FROM t_borrow_list_history
+    where 1=1
+    <if test="bookId !=null">
+     AND book_id=#{bookId}
+    </if>
+    <if test="bookName !=null  and bookName!=''">
+      AND book_name like CONCAT('%',#{bookName},'%')
+    </if>
+    <if test="habbitType !=null and habbitType!=''">
+        AND habbit_type like CONCAT('%',#{habbitType},'%')
+    </if>
+    <if test="supportMajor !=null and supportMajor !=''">
+      AND support_major=#{supportMajor}
+    </if>
+    <if test="userId!=null ">
+      AND user_id =#{userId}
+    </if>
+    <if test="chineseName !=null and chineseName!=''">
+      AND chinese_name like CONCAT('%',#{chineseName},'%')
+    </if>
+    <if test="department !=null and department!=''">
+      AND department=#{department}
+    </if>
+    order by id desc
+  </select>
+</mapper>

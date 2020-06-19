@@ -1,4 +1,4 @@
-package kxg.library.book.provider.service;
+package kxg.library.book.provider.dubbo.service;
 
 import org.apache.dubbo.config.annotation.Service;
 import kxg.library.book.service.DemoService;
