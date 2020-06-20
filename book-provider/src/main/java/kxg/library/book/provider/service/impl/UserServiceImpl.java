@@ -13,10 +13,10 @@ import kxg.library.book.request.UpdateUserRequest;
 import kxg.library.book.response.FindAllUserResponse;
 import kxg.library.book.response.IntegerResultResponse;
 import kxg.library.book.response.LoginResponse;
-import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
 import java.util.ArrayList;

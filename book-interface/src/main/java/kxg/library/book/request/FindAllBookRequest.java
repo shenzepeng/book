@@ -54,10 +54,6 @@ public class FindAllBookRequest {
     private String language;
 
 
-    private Date createTime;
-
-
-    private Date updateTime;
 
     /**
      * 头像

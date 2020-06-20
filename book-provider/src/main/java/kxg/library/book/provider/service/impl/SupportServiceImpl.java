@@ -6,9 +6,10 @@ import kxg.library.book.provider.pojo.Book;
 import kxg.library.book.provider.service.SupportService;
 import kxg.library.book.request.FindMajorRequest;
 import kxg.library.book.response.FindSupportResponse;
-import org.apache.dubbo.config.annotation.Service;
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
@@ -40,7 +41,7 @@ public class SupportServiceImpl implements SupportService {
             books.addAll(bookByCondition);
         }
         if (CollectionUtils.isEmpty(books)&&request.getGetLowGrade()!=null){
-            bookDao.findAll()
+            bookDao.findAll();
         }
         return null;
     }
