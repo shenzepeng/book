@@ -4,6 +4,8 @@ import kxg.library.book.request.AddBookRequest;
 import kxg.library.book.request.DeleteByIdRequest;
 import kxg.library.book.request.FindAllBookRequest;
 import kxg.library.book.request.UpdateBookRequest;
+import kxg.library.book.response.FindAllBookResponse;
+import kxg.library.book.response.FindBookResponse;
 import kxg.library.book.response.IntegerResultResponse;
 
 /**
@@ -14,5 +16,5 @@ public interface BookService {
     IntegerResultResponse  addBookService(AddBookRequest request);
     IntegerResultResponse updateBookService(UpdateBookRequest request);
     IntegerResultResponse deleteBookService(DeleteByIdRequest request);
-    FindAllBookRequest findBookByCondition(FindAllBookRequest request);
+    FindAllBookResponse findBookByCondition(FindAllBookRequest request);
 }

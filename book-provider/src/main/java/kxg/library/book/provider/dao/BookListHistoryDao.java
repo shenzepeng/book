@@ -18,4 +18,16 @@ public class BookListHistoryDao {
     public List<BookListHistory> findBookHistoryByCondition(BookListHistory bookListHistory){
         return bookListHistoryMapper.findBookList(bookListHistory);
     }
+
+    public Integer add(BookListHistory bookListHistory){
+        return bookListHistoryMapper.insert(bookListHistory);
+    }
+
+    public Integer delete(Long id){
+        return bookListHistoryMapper.deleteByPrimaryKey(id);
+    }
+
+    public Integer update(BookListHistory bookListHistory){
+        return bookListHistoryMapper.updateByPrimaryKeySelective(bookListHistory);
+    }
 }

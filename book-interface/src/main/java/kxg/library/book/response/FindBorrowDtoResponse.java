@@ -10,6 +10,6 @@ import java.util.List;
  */
 @Data
 public class FindBorrowDtoResponse {
-    private List<BorrowListDto> borrowListDtos;
+    private List<BorrowListDto> data;
     private Long totals;
 }

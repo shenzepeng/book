@@ -10,6 +10,6 @@ import java.util.List;
  */
 @Data
 public class FindBookResponse implements Serializable {
-    private List<BookDto> bookDtos;
+    private List<BookDto> data;
     private Long total;
 }

@@ -82,8 +82,8 @@ public class UserServiceImpl implements UserService {
                 return userDto;
             }
         }).collect(Collectors.toList());
-        response.setUserDtoList(userDtoList);
-        response.setTotal(pageInfo.getTotal());
+        response.setData(userDtoList);
+        response.setTotals(pageInfo.getTotal());
         return response;
     }
 }

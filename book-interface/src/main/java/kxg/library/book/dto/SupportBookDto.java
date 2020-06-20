@@ -1,11 +1,14 @@
-package kxg.library.book.request;
+package kxg.library.book.dto;
+
+import lombok.Data;
 
 import java.util.Date;
 
 /**
  * 要写注释呀
  */
-public class UpdateBookRequest {
+@Data
+public class SupportBookDto {
     private Long id;
 
     /**
@@ -49,6 +52,10 @@ public class UpdateBookRequest {
     private String language;
 
 
+    private Date createTime;
+
+
+    private Date updateTime;
 
     /**
      * 头像
