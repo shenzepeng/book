@@ -33,6 +33,11 @@ public class SupportServiceImpl implements SupportService {
         HashSet<SupportBookDto>  books=new HashSet<>();
         Book book=new Book();
         BeanUtils.copyProperties(request,book);
+        if (!StringUtils.isEmpty(request.getHabbit())){
+            book.setHabbitType(request.getHabbit());
+            List<Book> bookByCondition = bookDao.findBookByCondition(book);
+            books.addAll(bookToSortDto(bookByCondition));
+        }
         if (!StringUtils.isEmpty(request.getMajor())){
             book.setSupportMajor(request.getMajor());
             book.setSupportMajor(null);

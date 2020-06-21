@@ -9,6 +9,9 @@ import kxg.library.book.provider.pojo.Book;
 import kxg.library.book.provider.pojo.BookListHistory;
 import kxg.library.book.provider.pojo.BorrowList;
 import kxg.library.book.provider.pojo.User;
+import kxg.library.book.provider.service.SupportService;
+import kxg.library.book.request.FindMajorRequest;
+import kxg.library.book.response.FindSupportResponse;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +32,8 @@ public class MapperTest {
     private BorrowListMapper borrowListMapper;
     @Autowired
     private UserMapper userMapper;
+    @Autowired
+    private SupportService supportService;
     @Test
     public void test(){
         BookListHistory bookListHistory=new BookListHistory();
@@ -47,5 +52,12 @@ public class MapperTest {
 
         User user=new User();
         userMapper.findAllUserByCondition(user);
+    }
+    @Test
+    public void test2(){
+        FindMajorRequest request=new FindMajorRequest();
+        request.setHabbit("科技");
+        FindSupportResponse support = supportService.findSupport(request);
+        System.out.println(support);
     }
 }

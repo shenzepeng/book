@@ -9,7 +9,6 @@ import java.util.Date;
  */
 @Data
 public class AddUserRequest {
-    private Long id;
 
     /**
      * 第一学历
