@@ -1,14 +1,11 @@
 package kxg.library.book.dto;
 
-import lombok.Data;
-
 import java.util.Date;
 
 /**
  * 要写注释呀
  */
-@Data
-public class SupportBookDto {
+public class SuppoertDto {
     private Long id;
 
     /**

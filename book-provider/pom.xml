@@ -19,6 +19,20 @@
     </properties>
 
     <dependencies>
+        <!-- validation end -->
+        <!--Excel-->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>3.17</version>
+        </dependency>
+
+        <!--导出xlsx格式需要引入此包-->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>3.17</version>
+        </dependency>
         <dependency>
             <groupId>kxg.library</groupId>
             <artifactId>book-interface</artifactId>

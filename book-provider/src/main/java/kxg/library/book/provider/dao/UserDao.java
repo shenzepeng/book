@@ -37,4 +37,8 @@ public class UserDao {
     }
 
 
+    public Integer addUserList(List<User> users){
+        return userMapper.insertList(users);
+    }
+
 }

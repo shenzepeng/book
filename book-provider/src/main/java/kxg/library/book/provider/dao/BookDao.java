@@ -34,4 +34,8 @@ public class BookDao {
     public List<Book> findAll(){
         return bookMapper.selectAll();
     }
+
+    public Integer addBooks(List<Book> bookList){
+        return bookMapper.insertList(bookList);
+    }
 }
