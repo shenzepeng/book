@@ -7,6 +7,7 @@ import kxg.library.book.request.DeleteByIdRequest;
 import kxg.library.book.request.FindAllBookRequest;
 import kxg.library.book.request.UpdateBookRequest;
 import kxg.library.book.response.FindAllBookResponse;
+import kxg.library.book.response.FindBookByIdResponse;
 import kxg.library.book.response.IntegerResultResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -34,5 +35,9 @@ public class BookController {
     @PostMapping("find")
     public SzpJsonResult<FindAllBookResponse> findBookByCondition(@RequestBody FindAllBookRequest request){
         return SzpJsonResult.ok(bookService.findBookByCondition(request));
+    }
+    @PostMapping("find/{id}")
+    public SzpJsonResult<FindBookByIdResponse> findBookById(@PathVariable("id") Long bookId){
+        return SzpJsonResult.ok(bookService.findBookByIdRequest(bookId));
     }
 }

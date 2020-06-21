@@ -1,4 +1,4 @@
-package kxg.library.book.request;
+package kxg.library.book.response;
 
 import lombok.Data;
 
@@ -8,8 +8,7 @@ import java.util.Date;
  * 要写注释呀
  */
 @Data
-public class AddBookRequest {
-
+public class FindBookByIdResponse {
     /**
      * 书名
      */
@@ -49,8 +48,6 @@ public class AddBookRequest {
      * 语言
      */
     private String language;
-
-
 
 
     /**

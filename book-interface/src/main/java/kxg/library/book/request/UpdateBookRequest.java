@@ -1,10 +1,13 @@
 package kxg.library.book.request;
 
+import lombok.Data;
+
 import java.util.Date;
 
 /**
  * 要写注释呀
  */
+@Data
 public class UpdateBookRequest {
     private Long id;
 

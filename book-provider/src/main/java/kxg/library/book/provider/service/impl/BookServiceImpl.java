@@ -16,6 +16,7 @@ import kxg.library.book.request.DeleteByIdRequest;
 import kxg.library.book.request.FindAllBookRequest;
 import kxg.library.book.request.UpdateBookRequest;
 import kxg.library.book.response.FindAllBookResponse;
+import kxg.library.book.response.FindBookByIdResponse;
 import kxg.library.book.response.IntegerResultResponse;
 
 import org.springframework.beans.BeanUtils;
@@ -106,6 +107,14 @@ public class BookServiceImpl  implements BookService {
         }).collect(Collectors.toList());
         response.setData(bookDtoList);
         response.setTotals(pageInfo.getTotal());
+        return response;
+    }
+
+    @Override
+    public FindBookByIdResponse findBookByIdRequest(Long id) {
+        FindBookByIdResponse response=new FindBookByIdResponse();
+        Book bookById = bookDao.findBookById(id);
+        BeanUtils.copyProperties(bookById,response);
         return response;
     }
 }

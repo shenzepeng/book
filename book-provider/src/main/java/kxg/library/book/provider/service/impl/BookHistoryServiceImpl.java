@@ -37,20 +37,19 @@ public class BookHistoryServiceImpl implements BookHistoryService {
     @Autowired
     private BookListHistoryDao bookListHistoryDao;
     @Override
-    public IntegerResultResponse addBorrowHistory(AddBookRequest bookRequest) {
+    public IntegerResultResponse addBorrowHistory(AddBookHistoryRequest bookRequest) {
         IntegerResultResponse response=new IntegerResultResponse();
         BookListHistory bookListHistory=new BookListHistory();
         BeanUtils.copyProperties(bookRequest,bookListHistory);
         bookListHistory.setCreateTime(new Date());
         bookListHistory.setUpdateTime(new Date());
         Integer result = bookListHistoryDao.add(bookListHistory);
-
         response.setEnd(result);
         return response;
     }
 
     @Override
-    public IntegerResultResponse updateBorrow(UpdateBookRequest request) {
+    public IntegerResultResponse updateBorrow(UpdateBorrowListRequest request) {
         IntegerResultResponse response=new IntegerResultResponse();
         BookListHistory borrowList=new BookListHistory();
         BeanUtils.copyProperties(request,borrowList);

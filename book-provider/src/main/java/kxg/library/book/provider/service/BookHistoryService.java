@@ -9,8 +9,8 @@ import kxg.library.book.response.IntegerResultResponse;
  * 要写注释呀
  */
 public interface BookHistoryService {
-    IntegerResultResponse addBorrowHistory(AddBookRequest bookRequest);
-    IntegerResultResponse updateBorrow(UpdateBookRequest request);
+    IntegerResultResponse addBorrowHistory(AddBookHistoryRequest bookRequest);
+    IntegerResultResponse updateBorrow(UpdateBorrowListRequest request);
     IntegerResultResponse deleteBorrow(DeleteByIdRequest request);
     FindAllBookHistoryResponse findAll(FindAllBookHistoryRequest request);
 }

@@ -38,4 +38,8 @@ public class BookDao {
     public Integer addBooks(List<Book> bookList){
         return bookMapper.insertList(bookList);
     }
+
+    public Book findBookById(Long id){
+        return bookMapper.selectByPrimaryKey(id);
+    }
 }

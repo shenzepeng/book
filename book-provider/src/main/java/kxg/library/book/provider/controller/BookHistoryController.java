@@ -17,11 +17,11 @@ public class BookHistoryController {
     @Autowired
     private BookHistoryService bookHistoryService;
     @PostMapping("add")
-    public SzpJsonResult<IntegerResultResponse> addBorrowHistory(@RequestBody AddBookRequest bookRequest){
-        return SzpJsonResult.ok(bookHistoryService.addBorrowHistory(bookRequest));
+    public SzpJsonResult<IntegerResultResponse> addBorrowHistory(@RequestBody AddBookHistoryRequest addBookHistoryRequest){
+        return SzpJsonResult.ok(bookHistoryService.addBorrowHistory(addBookHistoryRequest));
     }
     @PutMapping("update")
-    public SzpJsonResult<IntegerResultResponse> updateBorrow(@RequestBody UpdateBookRequest request){
+    public SzpJsonResult<IntegerResultResponse> updateBorrow(@RequestBody UpdateBorrowListRequest request){
         return SzpJsonResult.ok(bookHistoryService.updateBorrow(request));
     }
     @DeleteMapping("delete")
