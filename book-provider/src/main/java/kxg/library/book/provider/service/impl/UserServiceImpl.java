@@ -51,7 +51,7 @@ public class UserServiceImpl implements UserService {
         if (CollectionUtils.isEmpty(login)){
             throw new RuntimeException("请检查用户名和密码");
         }
-        BeanUtils.copyProperties(response,login.get(0));
+        BeanUtils.copyProperties(login.get(0),response);
         return response;
     }
 

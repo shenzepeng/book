@@ -72,7 +72,13 @@ public class BookServiceImpl  implements BookService {
         IntegerResultResponse response=new IntegerResultResponse();
         Book book=new Book();
         BeanUtils.copyProperties(request,book);
+        if (null!=request.getBookSize()){
+            Book bookById = bookDao.findBookById(request.getId());
+            if (bookById.getBookSize().equals(request.getBookSize())){
 
+            }
+            book.setBookSize(request.getBookSize());
+        }
         book.setUpdateTime(new Date());
         Integer result = bookDao.update(book);
         response.setEnd(result);

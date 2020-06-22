@@ -37,6 +37,12 @@
             <groupId>kxg.library</groupId>
             <artifactId>book-interface</artifactId>
             <version>1.0.0</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>hibernate-validator</artifactId>
+                    <groupId>org.hibernate</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

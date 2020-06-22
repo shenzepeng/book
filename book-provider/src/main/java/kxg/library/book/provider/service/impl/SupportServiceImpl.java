@@ -52,7 +52,7 @@ public class SupportServiceImpl implements SupportService {
         }
         if (CollectionUtils.isEmpty(books)&&request.getGetLowGrade()!=null){
             List<Book> all = bookDao.findAll();
-            bookToSortDto(all);
+            books.addAll(bookToSortDto(all));
         }
         FindSupportResponse response=new FindSupportResponse();
         response.setData(new ArrayList(books));

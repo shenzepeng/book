@@ -56,7 +56,7 @@ public class MapperTest {
     @Test
     public void test2(){
         FindMajorRequest request=new FindMajorRequest();
-        request.setHabbit("科技");
+        request.setSecondMajor("计算机科学与技术");
         FindSupportResponse support = supportService.findSupport(request);
         System.out.println(support);
     }
