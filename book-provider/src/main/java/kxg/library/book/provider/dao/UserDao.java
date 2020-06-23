@@ -41,4 +41,8 @@ public class UserDao {
         return userMapper.insertList(users);
     }
 
+
+    public Integer delete(Long id){
+        return userMapper.deleteByPrimaryKey(id);
+    }
 }

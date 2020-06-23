@@ -49,7 +49,7 @@ public class BookHistoryServiceImpl implements BookHistoryService {
     }
 
     @Override
-    public IntegerResultResponse updateBorrow(UpdateBorrowListRequest request) {
+    public IntegerResultResponse updateBorrow(UpdateBookHistoryRequest request) {
         IntegerResultResponse response=new IntegerResultResponse();
         BookListHistory borrowList=new BookListHistory();
         BeanUtils.copyProperties(request,borrowList);

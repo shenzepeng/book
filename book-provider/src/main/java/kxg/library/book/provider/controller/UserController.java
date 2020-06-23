@@ -36,5 +36,9 @@ public class UserController {
     public SzpJsonResult<FindAllUserResponse> findUser(@RequestBody FindAllUserRequest request){
         return SzpJsonResult.ok(userService.findUser(request));
     }
+    @DeleteMapping("delete/{id}")
+    public SzpJsonResult<IntegerResultResponse> delete(@PathVariable("id") Long id){
+        return SzpJsonResult.ok(userService.deleteUser(id));
+    }
 
 }

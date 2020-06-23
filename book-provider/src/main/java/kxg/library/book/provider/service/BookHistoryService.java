@@ -10,7 +10,7 @@ import kxg.library.book.response.IntegerResultResponse;
  */
 public interface BookHistoryService {
     IntegerResultResponse addBorrowHistory(AddBookHistoryRequest bookRequest);
-    IntegerResultResponse updateBorrow(UpdateBorrowListRequest request);
+    IntegerResultResponse updateBorrow(UpdateBookHistoryRequest request);
     IntegerResultResponse deleteBorrow(DeleteByIdRequest request);
     FindAllBookHistoryResponse findAll(FindAllBookHistoryRequest request);
 }

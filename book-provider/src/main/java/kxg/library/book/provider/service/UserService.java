@@ -16,4 +16,5 @@ public interface UserService {
     LoginResponse login(LoginRequest request);
     IntegerResultResponse updateUser(UpdateUserRequest request);
     FindAllUserResponse findUser(FindAllUserRequest request);
+    IntegerResultResponse deleteUser(Long id);
 }

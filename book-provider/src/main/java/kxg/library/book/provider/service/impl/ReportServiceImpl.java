@@ -1,5 +1,6 @@
 package kxg.library.book.provider.service.impl;
 
+import kxg.library.book.dto.BookListHistoryDto;
 import kxg.library.book.provider.bo.BookListHistoryBo;
 import kxg.library.book.provider.dao.BookListHistoryDao;
 import kxg.library.book.provider.pojo.BookListHistory;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 /**
  * 要写注释呀
@@ -25,8 +27,18 @@ public class ReportServiceImpl implements ReportService {
         BookListHistoryBo bookListHistory=new BookListHistoryBo();
         BeanUtils.copyProperties(reportRequest,bookListHistory);
         List<BookListHistory> bookHistoryBoByCondition = bookListHistoryDao.findBookHistoryBoByCondition(bookListHistory);
-        bookHistoryBoByCondition.stream().map(new Function<BookListHistory, Object>() {
-        })
-        return null;
+
+        List<BookListHistoryDto> bookListHistoryDtoList=bookHistoryBoByCondition.stream().map(new Function<BookListHistory, BookListHistoryDto>() {
+            @Override
+            public BookListHistoryDto apply(BookListHistory bookListHistory) {
+                BookListHistoryDto bookListHistoryDto=new BookListHistoryDto();
+                BeanUtils.copyProperties(bookListHistory,bookListHistoryDto);
+                return bookListHistoryDto;
+            }
+        }).collect(Collectors.toList());
+        FindReportResponse reportResponse=new FindReportResponse();
+        reportResponse.setBookListHistoryDtos(bookListHistoryDtoList);
+        reportResponse.setTotal((long)bookListHistoryDtoList.size());
+        return reportResponse;
     }
 }

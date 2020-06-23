@@ -86,4 +86,12 @@ public class UserServiceImpl implements UserService {
         response.setTotals(pageInfo.getTotal());
         return response;
     }
+
+    @Override
+    public IntegerResultResponse deleteUser(Long id) {
+        IntegerResultResponse response=new IntegerResultResponse();
+        Integer result=userDao.delete(id);
+        response.setEnd(result);
+        return response;
+    }
 }

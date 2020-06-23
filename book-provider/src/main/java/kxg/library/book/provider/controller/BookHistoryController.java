@@ -21,7 +21,7 @@ public class BookHistoryController {
         return SzpJsonResult.ok(bookHistoryService.addBorrowHistory(addBookHistoryRequest));
     }
     @PutMapping("update")
-    public SzpJsonResult<IntegerResultResponse> updateBorrow(@RequestBody UpdateBorrowListRequest request){
+    public SzpJsonResult<IntegerResultResponse> updateBorrow(@RequestBody UpdateBookHistoryRequest request){
         return SzpJsonResult.ok(bookHistoryService.updateBorrow(request));
     }
     @DeleteMapping("delete")
