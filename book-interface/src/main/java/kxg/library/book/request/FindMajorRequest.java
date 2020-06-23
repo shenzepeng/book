@@ -10,8 +10,5 @@ import java.io.Serializable;
  */
 @Data
 public class FindMajorRequest  implements Serializable {
-    private String major;
-    private String secondMajor;
-    private String habbit;
     private Boolean getLowGrade;
 }

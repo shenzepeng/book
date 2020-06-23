@@ -1,5 +1,6 @@
 package kxg.library.book.provider.dao;
 
+import kxg.library.book.provider.bo.BookListHistoryBo;
 import kxg.library.book.provider.mapper.BookListHistoryMapper;
 import kxg.library.book.provider.pojo.BookListHistory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,4 +31,8 @@ public class BookListHistoryDao {
     public Integer update(BookListHistory bookListHistory){
         return bookListHistoryMapper.updateByPrimaryKeySelective(bookListHistory);
     }
+    public List<BookListHistory> findBookHistoryBoByCondition(BookListHistoryBo bookListHistory){
+        return bookListHistoryMapper.findBookBoList(bookListHistory);
+    }
+
 }

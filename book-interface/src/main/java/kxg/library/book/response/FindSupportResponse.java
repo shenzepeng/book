@@ -1,6 +1,7 @@
 package kxg.library.book.response;
 
 import kxg.library.book.dto.BookDto;
+import kxg.library.book.dto.SupportBookDto;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -11,6 +12,6 @@ import java.util.List;
  */
 @Data
 public class FindSupportResponse implements Serializable {
-    private List<BookDto> data;
+    private List<SupportBookDto> data;
     private Long totals;
 }

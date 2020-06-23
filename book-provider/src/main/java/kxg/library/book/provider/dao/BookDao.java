@@ -4,6 +4,7 @@ import kxg.library.book.provider.mapper.BookMapper;
 import kxg.library.book.provider.pojo.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
 

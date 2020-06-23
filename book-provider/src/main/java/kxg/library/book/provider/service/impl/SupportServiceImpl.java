@@ -14,10 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -30,32 +27,13 @@ public class SupportServiceImpl implements SupportService {
     private BookDao bookDao;
     @Override
     public FindSupportResponse findSupport(FindMajorRequest request) {
-        HashSet<SupportBookDto>  books=new HashSet<>();
-        Book book=new Book();
-        BeanUtils.copyProperties(request,book);
-        if (!StringUtils.isEmpty(request.getHabbit())){
-            book.setHabbitType(request.getHabbit());
-            List<Book> bookByCondition = bookDao.findBookByCondition(book);
-            books.addAll(bookToSortDto(bookByCondition));
-        }
-        if (!StringUtils.isEmpty(request.getMajor())){
-            book.setSupportMajor(request.getMajor());
-            book.setSupportMajor(null);
-            List<Book> bookByCondition = bookDao.findBookByCondition(book);
-            books.addAll(bookToSortDto(bookByCondition));
-        }
-        if (!StringUtils.isEmpty(request.getSecondMajor())){
-            book.setSupportMajor(request.getSecondMajor());
-            book.setSupportMajor(null);
-            List<Book> bookByCondition = bookDao.findBookByCondition(book);
-            books.addAll(bookToSortDto(bookByCondition));
-        }
+        List<SupportBookDto>  books=new ArrayList<>();
         if (CollectionUtils.isEmpty(books)&&request.getGetLowGrade()!=null){
             List<Book> all = bookDao.findAll();
             books.addAll(bookToSortDto(all));
         }
         FindSupportResponse response=new FindSupportResponse();
-        response.setData(new ArrayList(books));
+        response.setData(books);
         response.setTotals((long)(books.size()));
         return response;
     }
@@ -67,7 +45,7 @@ public class SupportServiceImpl implements SupportService {
             public SupportBookDto apply(Book book) {
                 SupportBookDto supportBookDto=new SupportBookDto();
                 BeanUtils.copyProperties(book,supportBookDto);
-                int anInt = Integer.parseInt(book.getBookGrades());
+                double anInt = Double.parseDouble(book.getBookGrades());
                 supportBookDto.setBookGrades(anInt);
                 return supportBookDto;
             }

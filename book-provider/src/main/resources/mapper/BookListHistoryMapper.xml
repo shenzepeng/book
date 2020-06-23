@@ -43,4 +43,34 @@
     </if>
     order by id desc
   </select>
+  <select id="findBookBoList" resultMap="BaseResultMap" parameterType="kxg.library.book.provider.bo.BookListHistoryBo">
+    SELECT * FROM t_borrow_list_history
+    where 1=1
+    <if test="bookId !=null">
+      AND book_id=#{bookId}
+    </if>
+    <if test="bookName !=null  and bookName!=''">
+      AND book_name like CONCAT('%',#{bookName},'%')
+    </if>
+    <if test="habbitType !=null and habbitType!=''">
+      AND habbit_type like CONCAT('%',#{habbitType},'%')
+    </if>
+    <if test="supportMajor !=null and supportMajor !=''">
+      AND support_major=#{supportMajor}
+    </if>
+    <if test="userId!=null ">
+      AND user_id =#{userId}
+    </if>
+    <if test="chineseName !=null and chineseName!=''">
+      AND chinese_name like CONCAT('%',#{chineseName},'%')
+    </if>
+    <if test="department !=null and department!=''">
+      AND department=#{department}
+    </if>
+    <if test="startTime !=null and endTime!=null">
+      AND startTime &lt;=#{startTime}
+      AND endTime &gt;=#{endTime}
+    </if>
+    order by id desc
+  </select>
 </mapper>

@@ -27,7 +27,7 @@ public class SupportBookDto {
      * 评分
      */
 
-    private Integer bookGrades;
+    private Double bookGrades;
 
     /**
      * 推荐爱好
