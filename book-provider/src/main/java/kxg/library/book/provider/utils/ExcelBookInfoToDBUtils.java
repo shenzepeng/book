@@ -76,7 +76,7 @@ public class ExcelBookInfoToDBUtils {
             }
 
             if (cell!=null){
-                bookDto.setBookName(CleanLinefeedUtils.replaceBlank(cell1.toString()));
+                bookDto.setBookName(CleanLinefeedUtils.replaceBlank(cell.toString()));
             }
             if (cell1!=null){
                 System.out.println(cell1);
@@ -85,25 +85,25 @@ public class ExcelBookInfoToDBUtils {
                 bookDto.setBookSize((int)(parseDouble));
             }
             if (cell2!=null){
-                bookDto.setBookGrades(CleanLinefeedUtils.replaceBlank(cell1.toString()));
+                bookDto.setBookGrades(CleanLinefeedUtils.replaceBlank(cell2.toString()));
             }
             if (cell3!=null){
-                bookDto.setHabbitType(CleanLinefeedUtils.replaceBlank(cell1.toString()));
+                bookDto.setHabbitType(CleanLinefeedUtils.replaceBlank(cell3.toString()));
             }
             if (cell4!=null){
-                bookDto.setSupportMajor(CleanLinefeedUtils.replaceBlank(cell1.toString()));
+                bookDto.setSupportMajor(CleanLinefeedUtils.replaceBlank(cell4.toString()));
             }
             if (cell5!=null){
-                bookDto.setAuthor(CleanLinefeedUtils.replaceBlank(cell1.toString()));
+                bookDto.setAuthor(CleanLinefeedUtils.replaceBlank(cell5.toString()));
             }
             if (cell6!=null){
-                bookDto.setLanguage(CleanLinefeedUtils.replaceBlank(cell1.toString()));
+                bookDto.setLanguage(CleanLinefeedUtils.replaceBlank(cell6.toString()));
             }
             if (cell7!=null){
-                bookDto.setImgUrl(CleanLinefeedUtils.replaceBlank(cell1.toString()));
+                bookDto.setImgUrl(CleanLinefeedUtils.replaceBlank(cell7.toString()));
             }
             if (cell8!=null){
-                bookDto.setPreice(CleanLinefeedUtils.replaceBlank(cell1.toString()));
+                bookDto.setPreice(CleanLinefeedUtils.replaceBlank(cell8.toString()));
             }
             log.info("bookDto-{}",JsonUtils.objectToJson(bookDto));
         }catch (Exception e){
