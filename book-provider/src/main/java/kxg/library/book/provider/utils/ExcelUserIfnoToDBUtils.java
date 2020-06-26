@@ -43,66 +43,7 @@ public class ExcelUserIfnoToDBUtils {
         }
         return userInfoBoList;
     }
-    /**
-     * 第一学历
-     */
-    private String firstMajor;
 
-    /**
-     * 第二学历
-     */
-
-    private String secondMajor;
-
-    /**
-     * 工号
-     */
-
-    private String workId;
-
-    /**
-     * 手机号
-     */
-
-    private String phoneNumber;
-
-    /**
-     * 头像
-     */
-
-    private String imgUrl;
-
-    /**
-     * 姓名
-     */
-
-    private String chiinsesName;
-
-    /**
-     * 身份类型
-     */
-    private String type;
-
-    /**
-     * 性别
-     */
-    private String sex;
-
-    /**
-     * 身份证号
-     */
-
-    private String idNumber;
-
-    /**
-     * 密码
-     */
-    private String password;
-
-    /**
-     * 院系
-     */
-    private String department;
     private static UserDto cellListToExcelBo(List<Cell> cellList) {
         UserDto userInfoBo = new UserDto();
         Cell cell = null;
@@ -153,8 +94,10 @@ public class ExcelUserIfnoToDBUtils {
             userInfoBo.setSecondMajor(CleanLinefeedUtils.replaceBlank(cell1.toString()));
         }
         if (cell2 != null) {
-            userInfoBo.setWorkId(CleanLinefeedUtils.replaceBlank(cell2.toString()));
-        }
+            DecimalFormat df = new DecimalFormat("0");
+            String whatYourWant = df.format(cell2.getNumericCellValue());
+            userInfoBo.setWorkId(whatYourWant);
+         }
         if (cell3 != null) {
             userInfoBo.setPhoneNumber(CleanLinefeedUtils.replaceBlank(cell3.toString()));
         }

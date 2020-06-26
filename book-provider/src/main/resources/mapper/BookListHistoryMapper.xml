@@ -65,11 +65,11 @@
       AND chinese_name like CONCAT('%',#{chineseName},'%')
     </if>
     <if test="department !=null and department!=''">
-      AND department=#{department}
+      AND department like CONCAT('%',#{department},'%')
     </if>
     <if test="startTime !=null and endTime!=null">
-      AND startTime &lt;=#{startTime}
-      AND endTime &gt;=#{endTime}
+      AND create_time  &gt;=#{startTime}
+      AND create_time &lt;=#{endTime}
     </if>
     order by id desc
   </select>

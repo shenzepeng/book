@@ -66,6 +66,7 @@ public class BorrowListImpl  implements BorrowListService {
     public IntegerResultResponse update(UpdateBorrowListRequest request) {
         IntegerResultResponse response=new IntegerResultResponse();
         BorrowList borrowList=new BorrowList();
+        BeanUtils.copyProperties(request,borrowList);
         borrowList.setCreateTime(new Date());
         borrowList.setUpdateTime(new Date());
         Integer result = borrowListDao.update(borrowList);

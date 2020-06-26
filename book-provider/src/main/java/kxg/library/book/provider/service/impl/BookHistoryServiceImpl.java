@@ -54,7 +54,6 @@ public class BookHistoryServiceImpl implements BookHistoryService {
         BookListHistory borrowList=new BookListHistory();
         BeanUtils.copyProperties(request,borrowList);
         borrowList.setUpdateTime(new Date());
-        borrowList.setCreateTime(new Date());
         Integer result = bookListHistoryDao.update(borrowList);
         response.setEnd(result);
         return response;
